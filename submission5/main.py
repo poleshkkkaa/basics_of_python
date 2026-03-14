@@ -1,22 +1,21 @@
-# Дані для завдання
+import os
 
-# Шлях до вхідного файлу
 input_file = "input.txt"
-
-# Шлях до вихідного файлу
 output_file = "output.txt"
 
-# Слово для пошуку (варіант 5)
-word_to_find = "Python"
+if not os.path.exists(input_file):
+    print("файл input.txt не знайдено")
+else:
+    with open(input_file, "r", encoding="utf-8") as f:
+        text = f.read()
 
-# Слово для заміни та нове слово (варіант 6)
-word_to_replace = "World"
-replacement_word = "Ukraine"
+    if text.strip() == "":
+        print("файл порожній")
+    else:
+        words = text.split()
+        word_count = len(words)
 
-# Новий рядок для додавання (варіант 7)
-new_line = "Новий рядок додано"
+        with open(output_file, "w", encoding="utf-8") as f:
+            f.write(str(word_count))
 
-# Новий вміст для перезапису (варіант 10)
-new_content = "Файл перезаписано"
-
-# Реалізуйте завдання тут
+        print(f"результати записано у файл {output_file}")
