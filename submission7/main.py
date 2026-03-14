@@ -1,14 +1,24 @@
-# Дані для завдання
+import logging
 
-# Словник для перевірки (варіант 6)
-data = {"name": "Олена", "age": 20, "faculty": "КН"}
+logging.basicConfig(
+    filename="log.txt",
+    level=logging.ERROR,
+    format="%(asctime)s - %(message)s",
+    encoding="utf-8")
 
-# Файл для запису помилок (варіант 8)
-error_file = "error.log"
+try:
+    value = input("Введіть ціле число: ")
 
-# Файл для зчитування (варіанти 5, 9)
-input_file = "input.txt"
+    number = int(value)
+    print(number) 
 
-# Формат даних у файлі (варіант 9): "ім'я:вік" у кожному рядку
+except ValueError:
 
-# Реалізуйте завдання тут
+    print("Помилка: введено некоректне значення. Потрібно вводити ціле число.")
+
+    logging.error("Некоректний ввід: %s", value)
+
+
+finally:
+    print("Програма завершила виконання.")
+  
